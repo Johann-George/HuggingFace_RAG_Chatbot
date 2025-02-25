@@ -25,12 +25,12 @@ class ChatBot:
 
         x = requests.post(url, json = myobj)
         print(x.text)
-        position = x.text.find("A:")
+        position = x.text.find("###")
         if position != -1:
-            answer = x.text[position + len("A:"):].strip()
+            answer = x.text[position + len("###"):].strip()
             return answer
         else:
-            return "The phrase 'The Answer is:' was not found in the text."
+            return "No answer found."
 
 
         #return x.text.split("The answer is:")[1].strip()
